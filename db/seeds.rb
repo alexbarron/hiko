@@ -26,11 +26,11 @@ Airline.create(name: "Southwest Airlines", code: "WN")
 
 airports = Airport.all
 airports.each do |airport|
-  Flight.create(origin_id: airport.id, airline_id: 1, price: 100)
-  Flight.create(origin_id: airport.id, airline_id: 2, price: 200)
-  Flight.create(origin_id: airport.id, airline_id: 3, price: 300)
-  Flight.create(origin_id: airport.id, airline_id: 4, price: 400)
-  Flight.create(origin_id: airport.id, airline_id: 5, price: 500)
+  Flight.create(origin_id: airport.id, airline_id: 1, price: 100, departure: (Time.now + (86400 * 10)), arrival: (Time.now + 18000 + (86400 * 10)))
+  Flight.create(origin_id: airport.id, airline_id: 2, price: 200, departure: (Time.now + (86400 * 20)), arrival: (Time.now + 18000 + (86400 * 20)))
+  Flight.create(origin_id: airport.id, airline_id: 3, price: 300, departure: (Time.now + (86400 * 30)), arrival: (Time.now + 18000 + (86400 * 30)))
+  Flight.create(origin_id: airport.id, airline_id: 4, price: 400, departure: (Time.now + (86400 * 40)), arrival: (Time.now + 18000 + (86400 * 40)))
+  Flight.create(origin_id: airport.id, airline_id: 5, price: 500, departure: (Time.now + (86400 * 50)), arrival: (Time.now + 18000 + (86400 * 50)))
 end
 
 flights = Flight.all
