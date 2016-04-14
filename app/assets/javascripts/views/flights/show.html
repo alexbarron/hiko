@@ -1,2 +1,9 @@
 <h3>{{ FlightShow.flight.airline_name}} {{FlightShow.flight.id}}</h3>
 <p>From: {{ FlightShow.flight.origin }}</p>
+
+<h5>Passengers On This Flight (Sorry no privacy on this site!)</h5>
+<ul>
+  <li ng-repeat="passenger in FlightShow.flight.passengers">
+    {{ passenger.name }}
+  </li>
+</ul>
