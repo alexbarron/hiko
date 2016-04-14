@@ -1,6 +1,5 @@
 class Airport < ActiveRecord::Base
-  has_many :flights
-  has_many :airlines, through: :flights
+  has_many :flights, foreign_key: :origin_id
   geocoded_by :name
   after_validation :geocode
 end
