@@ -2,8 +2,9 @@
 <p>Associated City: {{ AirportShow.airport.city}}</p>
 
 <h5>Flights from {{ AirportShow.airport.name}}</h5>
+<input ng-model="AirportShow.search" ng-change="AirportShow.refilter()" placeholder="Search Flights"/>
 <ul>
-  <li ng-repeat="flight in AirportShow.airport.flights">
+  <li ng-repeat="flight in AirportShow.filteredList">
     <a href="" ui-sref="flight({id: flight.id})">{{ flight.airline_name }} {{ flight.id }}</a>
   </li>
 </ul>

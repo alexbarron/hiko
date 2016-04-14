@@ -1,7 +1,8 @@
 <h3>Flights</h3>
+<input ng-model="FlightIndex.search" ng-change="FlightIndex.refilter()" placeholder="Search Flights"/>
 <div>
   <ul>
-    <li ng-repeat="flight in FlightIndex.flights">
+    <li ng-repeat="flight in FlightIndex.filteredList">
       <a href="" ui-sref="flight({id: flight.id})">{{ flight.airline_name }} {{ flight.id }} From {{ flight.origin }}</a>
     </li>
   </ul>

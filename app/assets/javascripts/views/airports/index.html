@@ -1,7 +1,8 @@
 <h3>Available Airports</h3>
+<input ng-model="AirportIndex.search" ng-change="AirportIndex.refilter()" placeholder="Search Airports"/>
 <div>
   <ul>
-    <li ng-repeat="airport in AirportIndex.airports">
+    <li ng-repeat="airport in AirportIndex.filteredList">
       <a href="" ui-sref="airport({id: airport.id})">{{ airport.name }}</a>
     </li>
   </ul>
