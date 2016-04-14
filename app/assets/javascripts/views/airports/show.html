@@ -1,2 +1,9 @@
 <h3>{{ AirportShow.airport.name}} ({{AirportShow.airport.code}}) </h3>
 <p>Associated City: {{ AirportShow.airport.city}}</p>
+
+<h5>Flights from {{ AirportShow.airport.name}}</h5>
+<ul>
+  <li ng-repeat="flight in AirportShow.airport.flights">
+    <a href="" ui-sref="flight({id: flight.id})">{{ flight.airline_name }} {{ flight.id }}</a>
+  </li>
+</ul>
