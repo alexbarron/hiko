@@ -1,1 +1,8 @@
 <h3>{{ AirlineShow.airline.name}} ({{AirlineShow.airline.code}}) </h3>
+
+<h5>Flights on {{ AirlineShow.airline.name}}</h5>
+<ul>
+  <li ng-repeat="flight in AirlineShow.airline.flights">
+    <a href="" ui-sref="flight({id: flight.id})">{{AirlineShow.airline.code}} {{ flight.id }} From {{ flight.origin }} </a>
+  </li>
+</ul>
