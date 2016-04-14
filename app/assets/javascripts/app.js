@@ -41,6 +41,26 @@ angular
             return BackendService.getRecord("airlines", $stateParams.id);
           }
         }
+      })
+      .state('flights',{
+        url: '/flights',
+        templateUrl: 'views/flights/index.html',
+        controller: 'FlightIndexController as FlightIndex',
+        resolve: {
+          flights: function(BackendService){
+            return BackendService.allRecords("flights");
+          }
+        }
+      })
+      .state('flight',{
+        url: '/flight/:id',
+        templateUrl: 'views/flights/show.html',
+        controller: 'FlightShowController as FlightShow',
+        resolve: {
+          flight: function($stateParams, BackendService){
+            return BackendService.getRecord("flights", $stateParams.id);
+          }
+        }
       });
     $urlRouterProvider.otherwise('home');
   });

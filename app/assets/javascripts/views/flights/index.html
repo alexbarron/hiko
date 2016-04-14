@@ -1,0 +1,8 @@
+<h3>Flights</h3>
+<div>
+  <ul>
+    <li ng-repeat="flight in FlightIndex.flights">
+      <a href="" ui-sref="flight({id: flight.id})">{{ flight.airline_name }} {{ flight.id }} From {{ flight.origin }}</a>
+    </li>
+  </ul>
+</div>
