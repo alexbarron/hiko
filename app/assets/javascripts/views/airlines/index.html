@@ -1,0 +1,8 @@
+<h3>Available Airlines</h3>
+<div>
+  <ul>
+    <li ng-repeat="airline in AirlineIndex.airlines">
+      <a href="" ui-sref="airline({id: airline.id})">{{ airline.name }}</a>
+    </li>
+  </ul>
+</div>

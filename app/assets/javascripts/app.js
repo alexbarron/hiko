@@ -7,8 +7,8 @@ angular
         templateUrl: 'views/airports/index.html',
         controller: 'AirportIndexController as AirportIndex',
         resolve: {
-          airports: function(AirportService){
-            return AirportService.allAirports();
+          airports: function(BackendService){
+            return BackendService.allRecords("airports");
           }
         }
       })
@@ -17,8 +17,28 @@ angular
         templateUrl: 'views/airports/show.html',
         controller: 'AirportShowController as AirportShow',
         resolve: {
-          airport: function($stateParams, AirportService){
-            return AirportService.getAirport($stateParams.id);
+          airport: function($stateParams, BackendService){
+            return BackendService.getRecord("airports", $stateParams.id);
+          }
+        }
+      })
+      .state('airlines',{
+        url: '/airlines',
+        templateUrl: 'views/airlines/index.html',
+        controller: 'AirlineIndexController as AirlineIndex',
+        resolve: {
+          airlines: function(BackendService){
+            return BackendService.allRecords("airlines");
+          }
+        }
+      })
+      .state('airline',{
+        url: '/airline/:id',
+        templateUrl: 'views/airlines/show.html',
+        controller: 'AirlineShowController as AirlineShow',
+        resolve: {
+          airline: function($stateParams, BackendService){
+            return BackendService.getRecord("airlines", $stateParams.id);
           }
         }
       });
