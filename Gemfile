@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'angular-rails-templates'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'geocoder'
 gem 'active_model_serializers'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

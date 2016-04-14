@@ -1,0 +1,23 @@
+{
+  "name": "hiko",
+  "homepage": "https://github.com/alexbarron/hiko",
+  "authors": [
+    "alexbarron <alexbarron@gmail.com>"
+  ],
+  "description": "app for looking up flights",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.4",
+    "angular-ui-router": "^0.2.18",
+    "bootstrap": "^3.3.6"
+  }
+}
