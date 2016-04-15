@@ -1,16 +1,23 @@
-<map orglat="FlightShow.flight.origin.lat" orglong="FlightShow.flight.origin.long" destlat="FlightShow.flight.destination.lat" destlong="FlightShow.flight.destination.long">
-</map>
+<div class="row">
 
-<h3>{{ FlightShow.flight.airline_name}} {{FlightShow.flight.id}}</h3>
-<p>From: {{ FlightShow.flight.origin.label }}<br />
-Departure Time: {{ FlightShow.flight.departure }}</p>
-<p>To: {{ FlightShow.flight.destination.label }}<br />
-Arrival Time: {{ FlightShow.flight.arrival }}</p>
+  <div class="col-md-4">
+    <h3>{{ FlightShow.flight.airline_name}} {{FlightShow.flight.id}}</h3>
+    <p>From: {{ FlightShow.flight.origin.label }}<br />
+    Departure Time: {{ FlightShow.flight.departure }}</p>
+    <p>To: {{ FlightShow.flight.destination.label }}<br />
+    Arrival Time: {{ FlightShow.flight.arrival }}</p>
 
-<h5>Passengers On This Flight (Sorry no privacy on this site!)</h5>
-<ul>
-  <li ng-repeat="passenger in FlightShow.flight.passengers">
-    {{ passenger.name }}
-  </li>
-</ul>
+    <h5>Passengers On This Flight (Sorry no privacy on this site!)</h5>
+    <ul>
+      <li ng-repeat="passenger in FlightShow.flight.passengers">
+        {{ passenger.name }}
+      </li>
+    </ul>
+  </div>
 
+  <div class="col-md-8">
+    <map orglat="FlightShow.flight.origin.lat" orglong="FlightShow.flight.origin.long" destlat="FlightShow.flight.destination.lat" destlong="FlightShow.flight.destination.long">
+    </map>
+  </div>
+
+</div>
