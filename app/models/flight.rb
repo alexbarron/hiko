@@ -5,10 +5,10 @@ class Flight < ActiveRecord::Base
   has_many :passengers
 
   def departure_time
-    self.departure.strftime("%m/%e/%Y %H:%M")
+    self.departure.strftime("%m/%d/%Y %H:%M")
   end
 
   def arrival_time
-    self.arrival.strftime("%m/%e/%Y %H:%M")
+    self.arrival.strftime("%m/%d/%Y %H:%M")
   end
 end

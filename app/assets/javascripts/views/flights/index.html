@@ -1,9 +1,22 @@
 <h3>Flights</h3>
 <input ng-model="FlightIndex.search" ng-change="FlightIndex.refilter()" placeholder="Search Flights"/>
-<div>
-  <ul>
-    <li ng-repeat="flight in FlightIndex.filteredList">
-      <a href="" ui-sref="flight({id: flight.id})">{{ flight.airline_name }} {{ flight.id }} From {{ flight.origin }} To {{ flight.destination }}</a>
-    </li>
-  </ul>
-</div>
+<table class="table table-striped table-condensed">
+  <tr>
+    <th></th>
+    <th>Departure Time</th>
+    <th>Departure Airport</th>
+    <th>Arrival Time</th>  
+    <th>Arrival Airport</th>
+    <th>Airline</th>
+    <th>Flight Number</th>
+  </tr>
+  <tr ng-repeat="flight in FlightIndex.filteredList">
+    <td><a href="" ui-sref="flight({id: flight.id})">See Flight Details</a></td>
+    <td>{{ flight.departure }}</td>
+    <td>{{ flight.origin }}</td>
+    <td>{{ flight.arrival }}</td>  
+    <td>{{ flight.destination }}</td>
+    <td>{{ flight.airline_name }}</td>
+    <td>{{ flight.id }}</td>
+  </tr>
+</table>
