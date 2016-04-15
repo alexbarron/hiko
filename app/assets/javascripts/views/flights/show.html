@@ -1,13 +1,11 @@
-
-
 <div class="row">
 
   <div class="col-md-4">
     <h3>{{ FlightShow.flight.airline_name}} {{FlightShow.flight.id}}</h3>
     <p>From: {{ FlightShow.flight.origin.label }}<br />
-    Departure Time: {{ FlightShow.flight.departure }}</p>
+    Departure Time: {{ FlightShow.flight.departure | date:'short' }}</p>
     <p>To: {{ FlightShow.flight.destination.label }}<br />
-    Arrival Time: {{ FlightShow.flight.arrival }}</p>
+    Arrival Time: {{ FlightShow.flight.arrival | date:'short'  }}</p>
 
     <a ui-sref="flight.passengers" class="btn btn-primary">See Passengers</a>
 

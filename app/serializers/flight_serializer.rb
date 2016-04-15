@@ -14,11 +14,4 @@ class FlightSerializer < ActiveModel::Serializer
     object.airline.name
   end
 
-  def departure
-    object.departure_time
-  end
-
-  def arrival
-    object.arrival_time
-  end
 end
