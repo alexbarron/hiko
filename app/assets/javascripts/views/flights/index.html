@@ -3,7 +3,7 @@
 <div>
   <ul>
     <li ng-repeat="flight in FlightIndex.filteredList">
-      <a href="" ui-sref="flight({id: flight.id})">{{ flight.airline_name }} {{ flight.id }} From {{ flight.origin }}</a>
+      <a href="" ui-sref="flight({id: flight.id})">{{ flight.airline_name }} {{ flight.id }} From {{ flight.origin }} To {{ flight.destination }}</a>
     </li>
   </ul>
 </div>

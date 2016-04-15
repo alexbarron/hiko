@@ -1,7 +1,11 @@
 class AirlineFlightSerializer < ActiveModel::Serializer
-  attributes :id, :origin
+  attributes :id, :origin, :destination
 
   def origin
-    "#{object.airport.city}(#{object.airport.code})"
+    "#{object.origin.city}(#{object.origin.code})"
+  end
+
+  def destination
+    "#{object.destination.city}(#{object.destination.code})"
   end
 end

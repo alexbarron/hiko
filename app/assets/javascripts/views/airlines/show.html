@@ -4,6 +4,6 @@
 <input ng-model="AirlineShow.search" ng-change="AirlineShow.refilter()" placeholder="Search Flights"/>
 <ul>
   <li ng-repeat="flight in AirlineShow.filteredList">
-    <a href="" ui-sref="flight({id: flight.id})">{{AirlineShow.airline.code}} {{ flight.id }} From {{ flight.origin }} </a>
+    <a href="" ui-sref="flight({id: flight.id})">{{AirlineShow.airline.code}} {{ flight.id }} From {{ flight.origin }} To {{ flight.destination }}</a>
   </li>
 </ul>

@@ -2,9 +2,17 @@
 <p>Associated City: {{ AirportShow.airport.city}}</p>
 
 <h5>Flights from {{ AirportShow.airport.name}}</h5>
-<input ng-model="AirportShow.search" ng-change="AirportShow.refilter()" placeholder="Search Flights"/>
+<input ng-model="AirportShow.searchDepartures" ng-change="AirportShow.refilter('departures')" placeholder="Search Flights"/>
 <ul>
-  <li ng-repeat="flight in AirportShow.filteredList">
-    <a href="" ui-sref="flight({id: flight.id})">{{ flight.airline_name }} {{ flight.id }}</a>
+  <li ng-repeat="flight in AirportShow.filteredDepartures">
+    <a href="" ui-sref="flight({id: flight.id})">{{ flight.airline_name }} {{ flight.id }} To {{ flight.destination }}</a>
+  </li>
+</ul>
+
+<h5>Flights to {{ AirportShow.airport.name}}</h5>
+<input ng-model="AirportShow.searchArrivals" ng-change="AirportShow.refilter('arrivals')" placeholder="Search Flights"/>
+<ul>
+  <li ng-repeat="flight in AirportShow.filteredArrivals">
+    <a href="" ui-sref="flight({id: flight.id})">{{ flight.airline_name }} {{ flight.id }} From {{ flight.origin }}</a>
   </li>
 </ul>
