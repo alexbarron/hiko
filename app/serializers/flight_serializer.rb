@@ -3,11 +3,11 @@ class FlightSerializer < ActiveModel::Serializer
   has_many :passengers, serializer: FlightPassengerSerializer
 
   def origin
-    "#{object.origin.city}(#{object.origin.code})"
+    {label: "#{object.origin.city}(#{object.origin.code})", lat: object.origin.latitude, long: object.origin.longitude}
   end
 
   def destination
-    "#{object.destination.city}(#{object.destination.code})"
+    {label: "#{object.destination.city}(#{object.destination.code})", lat: object.destination.latitude, long: object.destination.longitude}
   end
 
   def airline_name

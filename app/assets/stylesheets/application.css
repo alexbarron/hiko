@@ -18,3 +18,8 @@
  header {
   margin-bottom: 60px;
  }
+
+ #map {
+  height: 420px;
+  width: 600px;
+ }

@@ -13,9 +13,9 @@
   <tr ng-repeat="flight in FlightIndex.filteredList">
     <td><a href="" ui-sref="flight({id: flight.id})">See Flight Details</a></td>
     <td>{{ flight.departure }}</td>
-    <td>{{ flight.origin }}</td>
+    <td>{{ flight.origin.label }}</td>
     <td>{{ flight.arrival }}</td>  
-    <td>{{ flight.destination }}</td>
+    <td>{{ flight.destination.label }}</td>
     <td>{{ flight.airline_name }}</td>
     <td>{{ flight.id }}</td>
   </tr>
