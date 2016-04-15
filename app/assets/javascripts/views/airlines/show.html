@@ -1,6 +1,5 @@
-<h3>{{ AirlineShow.airline.name}} ({{AirlineShow.airline.code}}) </h3>
+<h3>Flights on {{ AirlineShow.airline.name}} ({{AirlineShow.airline.code}}) </h3>
 
-<h5>Flights on {{ AirlineShow.airline.name}}</h5>
 <input ng-model="AirlineShow.search" ng-change="AirlineShow.refilter()" placeholder="Search Flights"/>
 <ul>
   <li ng-repeat="flight in AirlineShow.filteredList">

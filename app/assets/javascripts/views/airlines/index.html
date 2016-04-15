@@ -1,8 +1,19 @@
-<h3>Available Airlines</h3>
-<div>
-  <ul>
-    <li ng-repeat="airline in AirlineIndex.airlines">
-      <a href="" ui-sref="airline({id: airline.id})">{{ airline.name }}</a>
-    </li>
-  </ul>
+<div class="row">
+  <div class="col-md-3">
+    <h3>Available Airlines</h3>
+    <div>
+      <ul>
+        <li ng-repeat="airline in AirlineIndex.airlines">
+          <a href="" ui-sref="airlines.airline({id: airline.id})">{{ airline.name }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="col-md-9">
+    <div ui-view></div>
+  </div>
+
 </div>
+
+

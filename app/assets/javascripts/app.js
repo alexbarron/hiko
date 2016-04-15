@@ -32,8 +32,8 @@ angular
           }
         }
       })
-      .state('airline',{
-        url: '/airline/:id',
+      .state('airlines.airline',{
+        url: '/:id',
         templateUrl: 'views/airlines/show.html',
         controller: 'AirlineShowController as AirlineShow',
         resolve: {
@@ -61,6 +61,11 @@ angular
             return BackendService.getRecord("flights", $stateParams.id);
           }
         }
+      })
+      .state('flight.passengers',{
+        url: '/passengers',
+        templateUrl: 'views/flights/passengers.html',
+        controller: 'FlightPassengersController as FlightPassengers'
       });
     $urlRouterProvider.otherwise('home');
   });
