@@ -23,3 +23,11 @@
   height: 420px;
   width: 600px;
  }
+
+ #price {
+  margin-bottom: 16px;
+ }
+
+ .error {
+  color: red;
+ }

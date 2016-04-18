@@ -7,6 +7,23 @@
     <p>To: {{ FlightShow.flight.destination.label }}<br />
     Arrival Time: {{ FlightShow.flight.arrival | date:'short'  }}</p>
 
+    <div id="price">
+      <p ng-model="FlightShow.flight.price">Price: {{ '$' + FlightShow.flight.price.toLocaleString() }}</p>
+
+      <form name="form" ng-submit="FlightShow.updateFlight()">
+        <div class="alert alert-danger" ng-if="form.price.$touched && form.price.$error.required">
+            Price can't be empty.
+        </div>
+        <div class="alert alert-danger" ng-if="form.price.$touched && form.price.$invalid">
+            Price must be between $50-$10,000.
+        </div>
+        <label for="price">Update Price</label>
+        <input type="number" name="price" ng-model="FlightShow.flight.price" min="50" max="10000" required="required"/>
+
+        <input type="submit" value="Update Price" class="btn btn-primary btn-sm">
+      </form>
+    </div>
+
     <a ui-sref="flight.passengers" class="btn btn-primary">See Passengers</a>
 
     <div ui-view></div>

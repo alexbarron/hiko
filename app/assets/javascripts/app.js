@@ -1,5 +1,5 @@
 angular
-  .module('hiko', ['ui.router', 'templates'])
+  .module('hiko', ['ui.router', 'templates', 'ngResource', 'ng-rails-csrf'])
   .config(function($stateProvider, $urlRouterProvider){
     $stateProvider
       .state('home',{
