@@ -8,4 +8,15 @@ class AirportsController < ApplicationController
     @airport = Airport.find(params[:id])
     render json: @airport
   end
+
+  def create
+    @airport = Airport.create(airport_params)
+    render json: @airport
+  end
+
+  private
+
+  def airport_params
+    params.require(:airport).permit(:city, :name, :code)
+  end
 end

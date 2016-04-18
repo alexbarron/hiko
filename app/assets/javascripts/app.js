@@ -12,6 +12,10 @@ angular
           }
         }
       })
+      .state('airports.new',{
+        url: '/new',
+        templateUrl: 'views/airports/new.html',
+      })
       .state('airport',{
         url: '/airport/:id',
         templateUrl: 'views/airports/show.html',
