@@ -1,6 +1,5 @@
 function FlightPassengersController(){
   var ctrl = this;
-  ctrl.test_var = "Hai to dere";
 }
 
 angular

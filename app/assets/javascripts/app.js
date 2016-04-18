@@ -2,8 +2,8 @@ angular
   .module('hiko', ['ui.router', 'templates', 'ngResource', 'ng-rails-csrf'])
   .config(function($stateProvider, $urlRouterProvider){
     $stateProvider
-      .state('home',{
-        url: '/home',
+      .state('airports',{
+        url: '/airports',
         templateUrl: 'views/airports/index.html',
         controller: 'AirportIndexController as AirportIndex',
         resolve: {
@@ -32,6 +32,10 @@ angular
           }
         }
       })
+      .state('airlines.new',{
+        url: '/new',
+        templateUrl: 'views/airlines/new.html',
+      })
       .state('airlines.airline',{
         url: '/:id',
         templateUrl: 'views/airlines/show.html',
@@ -52,6 +56,11 @@ angular
           }
         }
       })
+      .state('flights.new',{
+        url: '/new',
+        templateUrl: 'views/flights/new.html',
+        controller: 'NewFlightController as NewFlight'
+      })
       .state('flight',{
         url: '/flight/:id',
         templateUrl: 'views/flights/show.html',
@@ -67,5 +76,5 @@ angular
         templateUrl: 'views/flights/passengers.html',
         controller: 'FlightPassengersController as FlightPassengers'
       });
-    $urlRouterProvider.otherwise('home');
+    $urlRouterProvider.otherwise('flights');
   });

@@ -5,9 +5,16 @@ function BackendService($http){
   this.getRecord = function(resource, id){
     return $http.get('http://localhost:3000/' + resource + '/' + id + '.json');
   }
+
+  this.createRecord = function(resource, params){
+    return $http.post('http://localhost:3000/' + resource, params);
+  }
+
   this.updateFlightPrice = function(price, id) {
     return $http.put('http://localhost:3000/flights/' + id, { price: price});
   }
+
+
 }
 
 angular
