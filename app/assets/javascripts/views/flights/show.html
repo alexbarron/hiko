@@ -10,7 +10,7 @@
     <div id="price">
       <p ng-model="FlightShow.flight.price">Price: {{ '$' + FlightShow.flight.price.toLocaleString() }}</p>
 
-      <form name="form" ng-submit="FlightShow.updateFlight()">
+      <form name="form" ng-submit="form.$valid && FlightShow.updateFlight()">
         <div class="alert alert-danger" ng-if="form.price.$touched && form.price.$error.required">
             Price can't be empty.
         </div>

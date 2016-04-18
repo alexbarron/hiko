@@ -1,20 +1,16 @@
-<a href="" ui-sref="airports.new" class="btn btn-primary">Add Airport</a>
-<div class="row">
-  <div class="col-md-3">
-    <h3>Available Airports</h3>
-    <input ng-model="AirportIndex.search" ng-change="AirportIndex.refilter()" placeholder="Search Airports"/>
-    <div>
-      <ul>
-        <li ng-repeat="airport in AirportIndex.filteredList">
-          <a href="" ui-sref="airport({id: airport.id})">{{ airport.name }}</a>
-        </li>
-      </ul>
-    </div>
-  </div>
+<h3>Airports <a href="" ui-sref="airports.new" class="btn btn-primary">Add Airport</a></h3>
+<div ui-view></div>
 
-  <div class="col-md-9">
-    <div ui-view></div>
-  </div>
-
-</div>
+<table class="table table-striped table-condensed">
+  <tr>
+    <th>Airport Name</th>
+    <th>Associated City</th>
+    <th>Airport Code</th>
+  </tr>
+  <tr ng-repeat="airport in AirportIndex.filteredList">
+    <td><a href="" ui-sref="airport({id: airport.id})">{{ airport.name }}</a></td>
+    <td>{{ airport.city }}</td>
+    <td>{{ airport.code }}</td>  
+  </tr>
+</table>
 

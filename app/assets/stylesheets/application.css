@@ -31,3 +31,7 @@
  .error {
   color: red;
  }
+
+ .form_wrapper {
+  margin: 10px;
+ }

@@ -5,7 +5,7 @@ function AirlineIndexController(airlines, BackendService, $location){
 
   ctrl.createAirline = function(){
     BackendService.createRecord("airlines", ctrl.airline).success(function(data){
-      ctrl.airlines.push(data.airline);
+      ctrl.airlines.unshift(data.airline);
       ctrl.airline = {};
       $location.path('airlines');
     });

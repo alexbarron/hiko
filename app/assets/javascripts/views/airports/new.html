@@ -1,50 +1,52 @@
-<h2>Add Airport</h2>
-<form name="form" ng-submit="form.$valid && AirportIndex.createAirport()">
-  <p>
-    <div class="alert alert-danger" ng-if="form.city.$touched && form.city.$error.required">
-        Airports need a city.
-    </div>
-    <div class="alert alert-danger" ng-if="form.city.$touched && form.city.$error.minlength || form.city.$error.maxlength">
-        City name must be between 3-50 characters.
-    </div>
-    <div class="alert alert-danger" ng-if="form.city.$touched && form.city.$error.pattern">
-        City names can only have letters.
-    </div> 
+<div class="form_wrapper">
+    <h2>Add Airport</h2>
+    <form name="form" ng-submit="form.$valid && AirportIndex.createAirport()">
+      <p>
+        <div class="alert alert-danger" ng-if="form.city.$touched && form.city.$error.required">
+            Airports need a city.
+        </div>
+        <div class="alert alert-danger" ng-if="form.city.$touched && form.city.$error.minlength || form.city.$error.maxlength">
+            City name must be between 3-50 characters.
+        </div>
+        <div class="alert alert-danger" ng-if="form.city.$touched && form.city.$error.pattern">
+            City names can only have letters.
+        </div> 
 
-    <label for="city">City Name</label>
-    <input name="city" ng-model="AirportIndex.airport.city" ng-minlength="3" ng-maxlength="50" ng-pattern="/^[a-zA-Z\s]*$/" required="required"/>
-  </p>
+        <label for="city">City Name</label>
+        <input name="city" ng-model="AirportIndex.airport.city" ng-minlength="3" ng-maxlength="50" ng-pattern="/^[a-zA-Z\s]*$/" required="required"/>
+      </p>
 
-  <p>
-    <div class="alert alert-danger" ng-if="form.name.$touched && form.name.$error.required">
-        Airports need a name!
-    </div>
-    <div class="alert alert-danger" ng-if="form.name.$touched && form.name.$error.minlength || form.name.$error.maxlength">
-        Airport names must be between 10-75 characters.
-    </div>
-    <div class="alert alert-danger" ng-if="form.name.$touched && form.name.$error.pattern">
-        Airport names can only have letters.
-    </div> 
+      <p>
+        <div class="alert alert-danger" ng-if="form.name.$touched && form.name.$error.required">
+            Airports need a name!
+        </div>
+        <div class="alert alert-danger" ng-if="form.name.$touched && form.name.$error.minlength || form.name.$error.maxlength">
+            Airport names must be between 10-75 characters.
+        </div>
+        <div class="alert alert-danger" ng-if="form.name.$touched && form.name.$error.pattern">
+            Airport names can only have letters.
+        </div> 
 
-    <label for="name">Airport Full Name</label>
-    <input name="name" ng-model="AirportIndex.airport.name" ng-minlength="10" ng-maxlength="75" ng-pattern="/^[a-zA-Z\s]*$/" required="required"/>
-  </p>
+        <label for="name">Airport Full Name</label>
+        <input name="name" ng-model="AirportIndex.airport.name" ng-minlength="10" ng-maxlength="75" ng-pattern="/^[a-zA-Z\s]*$/" required="required"/>
+      </p>
 
-  <p>
-    <div class="alert alert-danger" ng-if="form.code.$touched && form.code.$error.required">
-        Airports need a code
-    </div>
-    <div class="alert alert-danger" ng-if="form.code.$touched && form.code.$error.maxlength || form.code.$error.minlength">
-        Airports codes must be exactly 3 characters long. Example: San Francisco International Airport is SFO.
-    </div> 
+      <p>
+        <div class="alert alert-danger" ng-if="form.code.$touched && form.code.$error.required">
+            Airports need a code
+        </div>
+        <div class="alert alert-danger" ng-if="form.code.$touched && form.code.$error.maxlength || form.code.$error.minlength">
+            Airports codes must be exactly 3 characters long. Example: San Francisco International Airport is SFO.
+        </div> 
 
-    <div class="alert alert-danger" ng-if="form.code.$touched && form.code.$error.pattern">
-        Airport codes can only have letters.
-    </div> 
+        <div class="alert alert-danger" ng-if="form.code.$touched && form.code.$error.pattern">
+            Airport codes can only have letters.
+        </div> 
 
-    <label for="code">Airport Code</label>
-    <input name="code" ng-model="AirportIndex.airport.code" ng-minlength="3" ng-maxlength="3" ng-pattern="/^[a-zA-Z\s]*$/" required="required"/>
-  </p>
+        <label for="code">Airport Code</label>
+        <input name="code" ng-model="AirportIndex.airport.code" ng-minlength="3" ng-maxlength="3" ng-pattern="/^[a-zA-Z\s]*$/" required="required"/>
+      </p>
 
-  <input type="submit" value="Add Airport" class="btn btn-primary btn-sm">
-</form>
+      <input type="submit" value="Create Airport" class="btn btn-success btn-sm">
+    </form>
+</div>

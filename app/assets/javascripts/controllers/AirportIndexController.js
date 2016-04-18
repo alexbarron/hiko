@@ -6,7 +6,7 @@ function AirportIndexController(airports, $filter, BackendService, $location){
 
   ctrl.createAirport = function(){
     BackendService.createRecord("airports", ctrl.airport).success(function(data){
-      ctrl.filteredList.push(data.airport);
+      ctrl.filteredList.unshift(data.airport);
       ctrl.airport = {};
       $location.path('airports');
     });

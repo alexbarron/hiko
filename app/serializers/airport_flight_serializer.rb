@@ -1,5 +1,5 @@
 class AirportFlightSerializer < ActiveModel::Serializer
-  attributes :id, :origin, :destination, :airline_name
+  attributes :id, :origin, :destination, :airline_name, :departure, :arrival
 
   def airline_name
     object.airline.name
