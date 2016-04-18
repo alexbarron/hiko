@@ -1,5 +1,5 @@
 <h2>Add Airline</h2>
-<form name="form" ng-submit="AirlineIndex.createAirline()">
+<form name="form" ng-submit="form.$valid && AirlineIndex.createAirline()">
   <p>
     <div class="alert alert-danger" ng-if="form.name.$touched && form.name.$error.required">
         Airlines need a name!
@@ -19,7 +19,7 @@
     <div class="alert alert-danger" ng-if="form.code.$touched && form.code.$error.required">
         Airlines need a code
     </div>
-    <div class="alert alert-danger" ng-if="form.code.$touched && form.code.$error.maxlength">
+    <div class="alert alert-danger" ng-if="form.code.$touched && form.code.$error.maxlength || form.code.$error.minlength">
         Airline codes must be exactly 2 characters long. Example: United Airlines' code is UA.
     </div> 
 

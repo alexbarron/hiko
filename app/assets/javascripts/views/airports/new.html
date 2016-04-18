@@ -1,5 +1,5 @@
 <h2>Add Airport</h2>
-<form name="form" ng-submit="AirportIndex.createAirport()">
+<form name="form" ng-submit="form.$valid && AirportIndex.createAirport()">
   <p>
     <div class="alert alert-danger" ng-if="form.city.$touched && form.city.$error.required">
         Airports need a city.
@@ -11,8 +11,8 @@
         City names can only have letters.
     </div> 
 
-    <label for="name">City Name</label>
-    <input name="name" ng-model="AirportIndex.airport.city" ng-minlength="3" ng-maxlength="50" ng-pattern="/^[a-zA-Z\s]*$/" required="required"/>
+    <label for="city">City Name</label>
+    <input name="city" ng-model="AirportIndex.airport.city" ng-minlength="3" ng-maxlength="50" ng-pattern="/^[a-zA-Z\s]*$/" required="required"/>
   </p>
 
   <p>
@@ -34,7 +34,7 @@
     <div class="alert alert-danger" ng-if="form.code.$touched && form.code.$error.required">
         Airports need a code
     </div>
-    <div class="alert alert-danger" ng-if="form.code.$touched && form.code.$error.maxlength">
+    <div class="alert alert-danger" ng-if="form.code.$touched && form.code.$error.maxlength || form.code.$error.minlength">
         Airports codes must be exactly 3 characters long. Example: San Francisco International Airport is SFO.
     </div> 
 

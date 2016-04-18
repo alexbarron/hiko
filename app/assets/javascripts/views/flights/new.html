@@ -1,6 +1,6 @@
 <h2>Add Flight</h2>
 
-<form name="form" ng-submit="FlightIndex.createFlight()">
+<form name="form" ng-submit="form.$valid && FlightIndex.createFlight()">
   <p>
     <div class="alert alert-danger" ng-if="form.airline_id.$touched && form.airline_id.$error.required">
         Flights need an airline. Please choose one.
