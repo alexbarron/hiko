@@ -73,11 +73,6 @@ angular
             return BackendService.getRecord("flights", $stateParams.id);
           }
         }
-      })
-      .state('flight.passengers',{
-        url: '/passengers',
-        templateUrl: 'views/flights/passengers.html',
-        controller: 'FlightPassengersController as FlightPassengers'
       });
     $urlRouterProvider.otherwise('flights');
   });
