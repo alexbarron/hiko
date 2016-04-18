@@ -63,7 +63,6 @@ angular
       .state('flights.new',{
         url: '/new',
         templateUrl: 'views/flights/new.html',
-        controller: 'NewFlightController as NewFlight'
       })
       .state('flight',{
         url: '/flight/:id',

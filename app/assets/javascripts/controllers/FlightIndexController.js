@@ -1,10 +1,28 @@
-function FlightIndexController(flights, $filter){
+function FlightIndexController(flights, $filter, BackendService, $location){
   var ctrl = this;
   ctrl.flights = flights.data.flights;
+  ctrl.flight = {};
+
+  BackendService.allRecords("airlines").success(function(data){
+    ctrl.airlines = data.airlines;
+  });
+
+  BackendService.allRecords("airports").success(function(data){
+    ctrl.airports = data.airports;
+  });
+
   ctrl.filteredList = ctrl.flights
   ctrl.search = '';
 
   var filterStatus = "future";
+
+  ctrl.createFlight = function(){
+    BackendService.createRecord("flights", ctrl.flight).success(function(data){
+      ctrl.filteredList.unshift(data.flight);
+      ctrl.flight = {};
+      $location.path('flights');
+    });
+  };
 
   ctrl.refilter = function(){
     if (ctrl.filteredList.length === 0 && ctrl.search === ""){

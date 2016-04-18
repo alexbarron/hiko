@@ -9,6 +9,11 @@ class FlightsController < ApplicationController
     render json: @flight
   end
 
+  def create
+    @flight = Flight.create(flight_params)
+    render json: @flight
+  end
+
   def update
     @flight = Flight.find(params[:id])
     @flight.update(flight_params)
@@ -18,6 +23,6 @@ class FlightsController < ApplicationController
   private
 
   def flight_params
-    params.require(:flight).permit(:price)
+    params.require(:flight).permit(:price, :origin_id, :destination_id, :airline_id, :departure, :arrival)
   end
 end
