@@ -3,37 +3,16 @@ function FlightIndexController(flights, $filter, BackendService, $location){
   ctrl.flights = flights.data.flights;
   ctrl.flight = {};
 
-  BackendService.allRecords("airlines").success(function(data){
-    ctrl.airlines = data.airlines;
-  });
-
-  BackendService.allRecords("airports").success(function(data){
-    ctrl.airports = data.airports;
-  });
-
   ctrl.filteredList = ctrl.flights
   ctrl.search = '';
 
   var filterStatus = "future";
 
-  ctrl.createFlight = function(){
-    BackendService.createRecord("flights", ctrl.flight).success(function(data){
-      ctrl.filteredList.unshift(data.flight);
-      ctrl.flight = {};
-      $location.path('flights');
-    });
+  ctrl.searchList = function(){
+    ctrl.filteredList = $filter('filter')(ctrl.makeList(filterStatus), ctrl.search);
   };
 
-  ctrl.refilter = function(){
-    if (ctrl.filteredList.length === 0 && ctrl.search === ""){
-      ctrl.filteredList = $filter('filter')(ctrl.filterDates(filterStatus), ctrl.search);
-    } else {
-      ctrl.filteredList = $filter('filter')(ctrl.filteredList, ctrl.search);
-    }
-    
-  };
-
-  ctrl.filterDates = function(direction){
+  ctrl.makeList = function(direction){
     var now = new Date;
     var flights = ctrl.flights;
     ctrl.filteredList = [];
@@ -55,11 +34,33 @@ function FlightIndexController(flights, $filter, BackendService, $location){
         }
         filterStatus = "future";
     }
-    ctrl.search = "";
-    return ctrl.filteredList;
+    return ctrl.filteredList;   
   }
 
-  ctrl.refilter();
+  ctrl.filterDates = function(direction){
+    ctrl.search = "";
+    return ctrl.makeList(direction);
+  }
+
+  ctrl.loadForm = function(){
+    BackendService.allRecords("airlines").success(function(data){
+      ctrl.airlines = data.airlines;
+    });
+
+    BackendService.allRecords("airports").success(function(data){
+      ctrl.airports = data.airports;
+    });
+  };
+
+  ctrl.createFlight = function(){
+    BackendService.createRecord("flights", ctrl.flight).success(function(data){
+      ctrl.filteredList.unshift(data.flight);
+      ctrl.flight = {};
+      $location.path('flights');
+    });
+  };
+
+  ctrl.searchList();
   ctrl.filterDates();
 }
 

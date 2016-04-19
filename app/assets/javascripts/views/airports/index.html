@@ -1,6 +1,7 @@
 <h3>Airports <a href="" ui-sref="airports.new" class="btn btn-primary">Add Airport</a></h3>
 <div ui-view></div>
 
+<input ng-model="ctrl.search" ng-change="ctrl.refilter()" placeholder="Search Airports"/>
 <table class="table table-striped table-condensed">
   <tr>
     <th>Airport Name</th>

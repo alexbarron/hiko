@@ -1,9 +1,9 @@
-<h3>Flights <a href="" ui-sref="flights.new" class="btn btn-primary">Add Flight</a></h3>
+<h3>Flights <a href="" ui-sref="flights.new" ng-click="ctrl.loadForm()" class="btn btn-primary">Add Flight</a></h3>
 
 <div ui-view></div>
 
 <h5>Flight Search & Filters</h5>
-<input ng-model="ctrl.search" ng-change="ctrl.refilter()" placeholder="Search Flights"/>
+<input ng-model="ctrl.search" ng-change="ctrl.searchList()" placeholder="Search Flights"/>
 <a href="" class="btn btn-primary" ng-click="ctrl.filterDates('all')">All Flights</a>
 <a href="" class="btn btn-primary" ng-click="ctrl.filterDates('past')">Past Flights</a>
 <a href="" class="btn btn-primary" ng-click="ctrl.filterDates('future')">Future Flights</a>
