@@ -6,7 +6,7 @@
         <th>Airline Name</th>
         <th>Airline Code</th>
       </tr>
-      <tr ng-repeat="airline in AirlineIndex.airlines">
+      <tr ng-repeat="airline in ctrl.airlines">
         <td><a href="" ui-sref="airlines.airline({id: airline.id})">{{ airline.name }}</a></td>
         <td>{{ airline.code }}</td>  
       </tr>

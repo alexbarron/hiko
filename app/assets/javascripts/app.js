@@ -33,7 +33,7 @@ angular
       .state('airlines',{
         url: '/airlines',
         templateUrl: 'views/airlines/index.html',
-        controller: 'AirlineIndexController as AirlineIndex',
+        controller: 'AirlineIndexController as ctrl',
         resolve: {
           airlines: function(BackendService){
             return BackendService.allRecords("airlines");
@@ -47,7 +47,7 @@ angular
       .state('airlines.airline',{
         url: '/:id',
         templateUrl: 'views/airlines/show.html',
-        controller: 'AirlineShowController as AirlineShow',
+        controller: 'AirlineShowController as ctrl',
         resolve: {
           airline: function($stateParams, BackendService){
             return BackendService.getRecord("airlines", $stateParams.id);
