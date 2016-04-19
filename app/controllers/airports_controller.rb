@@ -1,12 +1,12 @@
 class AirportsController < ApplicationController
   def index
     @airports = Airport.all
-    render json: @airports
+    render json: @airports, each_serializer: AirportIndexSerializer
   end
 
   def show
     @airport = Airport.find(params[:id])
-    render json: @airport
+    render json: @airport, serializer: AirportShowSerializer
   end
 
   def create

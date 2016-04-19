@@ -1,6 +1,6 @@
 function AirportShowController(airport, $filter, BackendService, $location){
   var ctrl = this;
-  ctrl.airport = airport.data.airport;
+  ctrl.airport = airport.data.airport_show;
   ctrl.departures = ctrl.airport.departures;
   ctrl.arrivals = ctrl.airport.arrivals;
   ctrl.searchDepartures = '';
