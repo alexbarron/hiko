@@ -61,7 +61,7 @@ angular
       .state('flights',{
         url: '/flights',
         templateUrl: 'views/flights/index.html',
-        controller: 'FlightIndexController as FlightIndex',
+        controller: 'FlightIndexController as ctrl',
         resolve: {
           flights: function(BackendService){
             return BackendService.allRecords("flights");

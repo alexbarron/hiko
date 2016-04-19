@@ -1,6 +1,6 @@
 class FlightsController < ApplicationController
   def index
-    @flights = Flight.all.sort {|a,b| a.departure <=> b.departure}
+    @flights = Flight.all
     render json: @flights
   end
 

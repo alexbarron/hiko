@@ -16,7 +16,7 @@
     <th>Arrival Time</th>  
     <th>Arrival Airport</th>
   </tr>
-  <tr ng-repeat="flight in ctrl.filteredList">
+  <tr ng-repeat="flight in ctrl.filteredList | orderBy: 'departure'">
     <td><a href="" ui-sref="flight({id: flight.id})" class="btn btn-primary btn-xs">Details</a></td>
     <td>{{AirlineShow.airline.code}} {{ flight.id }}</td>
     <td>{{ flight.departure | date:'short' }}</td>
