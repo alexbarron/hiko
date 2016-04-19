@@ -1,10 +1,16 @@
-function AirportShowController(airport, $filter){
+function AirportShowController(airport, $filter, BackendService, $location){
   var ctrl = this;
   ctrl.airport = airport.data.airport;
   ctrl.departures = ctrl.airport.departures;
   ctrl.arrivals = ctrl.airport.arrivals;
   ctrl.searchDepartures = '';
   ctrl.searchArrivals = '';
+
+  ctrl.updateAirport = function(){
+    BackendService.updateRecord("airports", ctrl.airport).success(function(data){
+      $location.path('/airport/' + data.airport.id);
+    });
+  }
 
   ctrl.refilter = function(category){
     if (category == "departures"){

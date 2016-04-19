@@ -1,0 +1,37 @@
+<div class="form_wrapper">
+  <h2>Edit {{ AirlineShow.airline.name }}</h2>
+  <form name="form" ng-submit="form.$valid && AirlineShow.updateAirline()">
+    <p>
+      <div class="alert alert-danger" ng-if="form.name.$touched && form.name.$error.required">
+          Airlines need a name!
+      </div>
+      <div class="alert alert-danger" ng-if="form.name.$touched && form.name.$error.minlength || form.name.$error.maxlength">
+          Airline names must be between 6-50 characters.
+      </div>
+      <div class="alert alert-danger" ng-if="form.name.$touched && form.name.$error.pattern">
+          Airline names can only have letters.
+      </div> 
+
+      <label for="name">Airline Full Name</label>
+      <input name="name" ng-model="AirlineShow.airline.name" ng-minlength="6" ng-maxlength="50" ng-pattern="/^[a-zA-Z\s]*$/" required="required"/>
+    </p>
+
+    <p>
+      <div class="alert alert-danger" ng-if="form.code.$touched && form.code.$error.required">
+          Airlines need a code
+      </div>
+      <div class="alert alert-danger" ng-if="form.code.$touched && form.code.$error.maxlength || form.code.$error.minlength">
+          Airline codes must be exactly 2 characters long. Example: United Airlines' code is UA.
+      </div> 
+
+      <div class="alert alert-danger" ng-if="form.code.$touched && form.code.$error.pattern">
+          Airline codes can only have numbers and letters.
+      </div> 
+
+      <label for="code">Airline Code</label>
+      <input name="code" ng-model="AirlineShow.airline.code" ng-minlength="2" ng-maxlength="2" ng-pattern="/^[a-zA-Z0-9]*$/" required="required"/>
+    </p>
+
+    <input type="submit" value="Update Airline" class="btn btn-success btn-sm">
+  </form>
+</div>

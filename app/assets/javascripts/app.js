@@ -26,6 +26,10 @@ angular
           }
         }
       })
+      .state('airport.edit',{
+        url: '/edit',
+        templateUrl: 'views/airports/edit.html'
+      })
       .state('airlines',{
         url: '/airlines',
         templateUrl: 'views/airlines/index.html',
@@ -49,6 +53,10 @@ angular
             return BackendService.getRecord("airlines", $stateParams.id);
           }
         }
+      })
+      .state('airlines.airline.edit',{
+        url: '/edit',
+        templateUrl: 'views/airlines/edit.html',
       })
       .state('flights',{
         url: '/flights',

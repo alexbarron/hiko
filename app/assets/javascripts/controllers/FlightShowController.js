@@ -3,7 +3,8 @@ function FlightShowController(flight, BackendService){
   ctrl.flight = flight.data.flight;
 
   ctrl.updateFlight = function(){
-    BackendService.updateFlightPrice(ctrl.flight.price, ctrl.flight.id);
+    var flight_params = { id: ctrl.flight.id, price: ctrl.flight.price };
+    BackendService.updateRecord("flights", flight_params);
   };
 }
 

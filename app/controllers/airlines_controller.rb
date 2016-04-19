@@ -14,6 +14,12 @@ class AirlinesController < ApplicationController
     render json: @airline
   end
 
+  def update
+    @airline = Airline.find(params[:id])
+    @airline.update(airline_params)
+    render json: @airline
+  end
+
   private
 
   def airline_params

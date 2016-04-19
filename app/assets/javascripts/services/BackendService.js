@@ -10,10 +10,9 @@ function BackendService($http){
     return $http.post('http://localhost:3000/' + resource, params);
   }
 
-  this.updateFlightPrice = function(price, id) {
-    return $http.put('http://localhost:3000/flights/' + id, { price: price});
+  this.updateRecord = function(resource, params){
+    return $http.put('http://localhost:3000/' + resource + '/' + params.id, params);
   }
-
 
 }
 

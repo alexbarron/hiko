@@ -1,4 +1,10 @@
-<h3>{{ AirportShow.airport.name}} ({{AirportShow.airport.code}}) </h3>
+<h3>
+  {{ AirportShow.airport.name}} ({{AirportShow.airport.code}})
+  <a href="" ui-sref="airport.edit" class="btn btn-primary">Edit</a>
+</h3>
+
+<div ui-view></div>
+
 <h5>Associated City: {{ AirportShow.airport.city}}</h5>
 
 <div class="row">

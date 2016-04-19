@@ -1,4 +1,9 @@
-<h3>Flights on {{ AirlineShow.airline.name}} ({{AirlineShow.airline.code}}) </h3>
+<h3>
+  Flights on {{ AirlineShow.airline.name }} ({{AirlineShow.airline.code}}) 
+  <a href="" ui-sref="airlines.airline.edit" class="btn btn-primary">Edit</a>
+</h3>
+
+<div ui-view></div>
 
 <input ng-model="AirlineShow.search" ng-change="AirlineShow.refilter()" placeholder="Search Flights"/>
 

@@ -14,6 +14,12 @@ class AirportsController < ApplicationController
     render json: @airport
   end
 
+  def update
+    @airport = Airport.find(params[:id])
+    @airport.update(airport_params)
+    render json: @airport
+  end
+
   private
 
   def airport_params
