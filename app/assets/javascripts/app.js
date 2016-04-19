@@ -5,7 +5,7 @@ angular
       .state('airports',{
         url: '/airports',
         templateUrl: 'views/airports/index.html',
-        controller: 'AirportIndexController as AirportIndex',
+        controller: 'AirportIndexController as ctrl',
         resolve: {
           airports: function(BackendService){
             return BackendService.allRecords("airports");
@@ -19,7 +19,7 @@ angular
       .state('airport',{
         url: '/airport/:id',
         templateUrl: 'views/airports/show.html',
-        controller: 'AirportShowController as AirportShow',
+        controller: 'AirportShowController as ctrl',
         resolve: {
           airport: function($stateParams, BackendService){
             return BackendService.getRecord("airports", $stateParams.id);

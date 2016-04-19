@@ -1,16 +1,16 @@
 <h3>
-  {{ AirportShow.airport.name}} ({{AirportShow.airport.code}})
+  {{ ctrl.airport.name}} ({{ctrl.airport.code}})
   <a href="" ui-sref="airport.edit" class="btn btn-primary">Edit</a>
 </h3>
 
 <div ui-view></div>
 
-<h5>Associated City: {{ AirportShow.airport.city}}</h5>
+<h5>Associated City: {{ ctrl.airport.city}}</h5>
 
 <div class="row">
   <div class="col-md-6">
-    <h5>Flights from {{ AirportShow.airport.name}}</h5>
-    <input ng-model="AirportShow.searchDepartures" ng-change="AirportShow.refilter('departures')" placeholder="Search Departures"/>
+    <h5>Flights from {{ ctrl.airport.name}}</h5>
+    <input ng-model="ctrl.searchDepartures" ng-change="ctrl.refilter('departures')" placeholder="Search Departures"/>
     <table class="table table-striped table-condensed">
       <tr>
         <th></th>
@@ -19,7 +19,7 @@
         <th>Airline</th>
         <th>Flight Number</th>
       </tr>
-      <tr ng-repeat="flight in AirportShow.filteredDepartures">
+      <tr ng-repeat="flight in ctrl.filteredDepartures">
         <td><a href="" ui-sref="flight({id: flight.id})" class="btn btn-primary btn-xs">Details</a></td>
         <td>{{ flight.departure | date:'short' }}</td> 
         <td>{{ flight.destination }}</td>
@@ -30,8 +30,8 @@
   </div>
 
   <div class="col-md-6">
-    <h5>Flights to {{ AirportShow.airport.name}}</h5>
-    <input ng-model="AirportShow.searchArrivals" ng-change="AirportShow.refilter('arrivals')" placeholder="Search Arrivals"/>
+    <h5>Flights to {{ ctrl.airport.name}}</h5>
+    <input ng-model="ctrl.searchArrivals" ng-change="ctrl.refilter('arrivals')" placeholder="Search Arrivals"/>
     <table class="table table-striped table-condensed">
       <tr>
         <th></th>
@@ -40,7 +40,7 @@
         <th>Airline</th>
         <th>Flight Number</th>
       </tr>
-      <tr ng-repeat="flight in AirportShow.filteredArrivals">
+      <tr ng-repeat="flight in ctrl.filteredArrivals">
         <td><a href="" ui-sref="flight({id: flight.id})" class="btn btn-primary btn-xs">Details</a></td>
         <td>{{ flight.arrival | date:'short' }}</td> 
         <td>{{ flight.origin }}</td>

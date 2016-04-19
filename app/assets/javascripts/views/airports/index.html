@@ -7,7 +7,7 @@
     <th>Associated City</th>
     <th>Airport Code</th>
   </tr>
-  <tr ng-repeat="airport in AirportIndex.filteredList">
+  <tr ng-repeat="airport in ctrl.filteredList">
     <td><a href="" ui-sref="airport({id: airport.id})">{{ airport.name }}</a></td>
     <td>{{ airport.city }}</td>
     <td>{{ airport.code }}</td>  
