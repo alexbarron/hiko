@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  resources :passengers
   devise_for :users
   root to: 'application#angular'
   resources :passengers
   resources :airlines
   resources :flights
   resources :airports
+  resources :users, only: [:show]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

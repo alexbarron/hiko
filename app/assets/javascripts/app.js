@@ -101,6 +101,11 @@ angular
             $state.go('flights');
           });
         }]
+      })
+      .state('user', {
+        url: '/user/:id',
+        templateUrl: 'views/users/show.html',
+        controller: 'UserController'
       });
     $urlRouterProvider.otherwise('flights');
   });
