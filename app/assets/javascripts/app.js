@@ -1,5 +1,5 @@
 angular
-  .module('hiko', ['ui.router', 'templates', 'ngResource', 'ng-rails-csrf'])
+  .module('hiko', ['ui.router', 'templates', 'ngResource', 'ng-rails-csrf', 'Devise'])
   .config(function($stateProvider, $urlRouterProvider){
     $stateProvider
       .state('airports',{
@@ -81,6 +81,26 @@ angular
             return BackendService.getRecord("flights", $stateParams.id);
           }
         }
+      })
+      .state('register', {
+        url: '/register',
+        templateUrl: 'views/users/register.html',
+        controller: 'UserController',
+        onEnter: ['Auth', '$state', function(Auth, $state){
+          Auth.currentUser().then(function(){
+            $state.go('flights');
+          });
+        }]
+      })
+      .state('login', {
+        url: '/login',
+        templateUrl: 'views/users/login.html',
+        controller: 'UserController',
+        onEnter: ['Auth', '$state', function(Auth, $state){
+          Auth.currentUser().then(function(){
+            $state.go('flights');
+          });
+        }]
       });
     $urlRouterProvider.otherwise('flights');
   });

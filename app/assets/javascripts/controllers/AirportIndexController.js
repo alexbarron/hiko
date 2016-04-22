@@ -1,5 +1,11 @@
-function AirportIndexController(airports, $filter, BackendService, $location){
+function AirportIndexController(airports, $filter, BackendService, $location, Auth){
   var ctrl = this;
+
+  Auth.currentUser()
+    .then(function(user) {
+      ctrl.user = user;
+    });
+
   ctrl.airports = airports.data.airports;
   ctrl.airport = {};
   ctrl.search = '';

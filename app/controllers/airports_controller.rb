@@ -1,4 +1,6 @@
 class AirportsController < ApplicationController
+  before_filter :authenticate_user!, only: [:create, :update]
+
   def index
     @airports = Airport.all
     render json: @airports, each_serializer: AirportIndexSerializer

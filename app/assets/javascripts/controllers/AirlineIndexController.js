@@ -1,5 +1,11 @@
-function AirlineIndexController(airlines, BackendService, $location){
+function AirlineIndexController(airlines, BackendService, $location, Auth){
   var ctrl = this;
+
+  Auth.currentUser()
+    .then(function(user) {
+      ctrl.user = user;
+    });
+
   ctrl.airlines = airlines.data.airlines;
   ctrl.airline = {};
 

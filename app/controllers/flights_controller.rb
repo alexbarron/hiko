@@ -1,4 +1,6 @@
 class FlightsController < ApplicationController
+  before_filter :authenticate_user!, only: [:create, :update]
+
   def index
     @flights = Flight.all
     render json: @flights

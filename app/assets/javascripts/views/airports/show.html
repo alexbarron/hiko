@@ -1,6 +1,6 @@
 <h3>
   {{ ctrl.airport.name}} ({{ctrl.airport.code}})
-  <a href="" ui-sref="airport.edit" class="btn btn-primary">Edit</a>
+  <a ng-show="ctrl.user" href="" ui-sref="airport.edit" class="btn btn-primary">Edit</a>
 </h3>
 
 <div ui-view></div>

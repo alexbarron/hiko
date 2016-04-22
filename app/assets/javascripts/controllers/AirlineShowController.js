@@ -1,5 +1,11 @@
-function AirlineShowController(airline, $filter, BackendService, $location){
+function AirlineShowController(airline, $filter, BackendService, $location, Auth){
   var ctrl = this;
+
+  Auth.currentUser()
+    .then(function(user) {
+      ctrl.user = user;
+    });
+
   ctrl.airline = airline.data.airline_show;
   ctrl.flights = ctrl.airline.flights;
   ctrl.search = '';

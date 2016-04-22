@@ -19,6 +19,10 @@
   margin-bottom: 60px;
  }
 
+ nav {
+  padding: 0 40px;
+ }
+
  #map {
   height: 420px;
   width: 600px;

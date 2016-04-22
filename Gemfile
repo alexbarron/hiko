@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'angular-rails-templates'
+gem 'devise'
 gem 'ng-rails-csrf'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'geocoder'

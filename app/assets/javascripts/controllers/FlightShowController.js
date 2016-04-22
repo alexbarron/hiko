@@ -1,5 +1,11 @@
-function FlightShowController(flight, BackendService){
+function FlightShowController(flight, BackendService, Auth){
   var ctrl = this;
+
+  Auth.currentUser()
+    .then(function(user) {
+      ctrl.user = user;
+    });
+    
   ctrl.flight = flight.data.flight;
 
   ctrl.updateFlight = function(){

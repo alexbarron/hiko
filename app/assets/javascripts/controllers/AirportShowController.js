@@ -1,5 +1,11 @@
-function AirportShowController(airport, $filter, BackendService, $location){
+function AirportShowController(airport, $filter, BackendService, $location, Auth){
   var ctrl = this;
+
+  Auth.currentUser()
+    .then(function(user) {
+      ctrl.user = user;
+    });
+
   ctrl.airport = airport.data.airport_show;
   ctrl.departures = ctrl.airport.departures;
   ctrl.arrivals = ctrl.airport.arrivals;
