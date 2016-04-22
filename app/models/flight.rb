@@ -3,6 +3,7 @@ class Flight < ActiveRecord::Base
   belongs_to :destination, foreign_key: :destination_id, class_name: "Airport"
   belongs_to :airline
   has_many :passengers
+  has_many :users, through: :passengers
 
   def departure_time
     self.departure.strftime("%m/%d/%Y %H:%M")
