@@ -15,10 +15,10 @@ function Map() {
       }
 
       $scope.map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: new google.maps.LatLng(center.lat, center.long),
           mapTypeId: google.maps.MapTypeId.TERRAIN
       });
+
+      var bounds = new google.maps.LatLngBounds();
 
       var marker1 = new google.maps.Marker({
         map: $scope.map,
@@ -29,6 +29,11 @@ function Map() {
         map: $scope.map,
         position: new google.maps.LatLng($scope.destlat, $scope.destlong)
       });
+
+      bounds.extend(marker1.position);
+      bounds.extend(marker2.position);
+
+      $scope.map.fitBounds(bounds);
 
       var geodesicPoly = new google.maps.Polyline({
         strokeColor: '#CC0099',
