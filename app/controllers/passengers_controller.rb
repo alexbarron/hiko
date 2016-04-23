@@ -1,6 +1,7 @@
 class PassengersController < ApplicationController
   def create
     @passenger = Passenger.create(passenger_params)
+    render json: @passenger
   end
 
   private

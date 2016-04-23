@@ -6,7 +6,8 @@
           <li ui-sref-active="active"><a href="#" ui-sref="airlines">Airlines</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-          <li ng-show="signedIn()" ui-sref-active="active"><a href="#" ui-sref="user({id: user.id})">Signed in as {{ user.email }}</a></li>
+          <li ng-show="signedIn()" ui-sref-active="active"><a href="#" ui-sref="user">My Flights</a></li>
+          <li ng-show="signedIn()" ui-sref-active="active"><p class="navbar-text">Signed in as {{ user.email }}</p></li>
           <li ng-show="signedIn()" ui-sref-active="active"><a href="#" ng-click="logout()">Sign Out</a></li>
           <li ng-hide="signedIn()" ui-sref-active="active"><a href="#" ui-sref="login">Login</a></li>
           <li ng-hide="signedIn()" ui-sref-active="active"><a href="#" ui-sref="register">Sign Up</a></li>

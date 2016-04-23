@@ -103,7 +103,7 @@ angular
         }]
       })
       .state('user', {
-        url: '/user/:id',
+        url: '/user',
         templateUrl: 'views/users/show.html',
         controller: 'UserController'
       });

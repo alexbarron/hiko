@@ -14,12 +14,9 @@ function FlightShowController(flight, BackendService, Auth, $state){
   };
 
   ctrl.addPassenger = function(){
-    console.log(ctrl.user.id);
-    console.log(ctrl.flight.id);
     var passenger_params = { user_id: ctrl.user.id, flight_id: ctrl.flight.id };
     BackendService.createRecord("passengers", passenger_params).success(function(data){
-      console.log("Added passenger");
-      $state.go('flights');
+      $state.go('user');
     });
   };
 }
