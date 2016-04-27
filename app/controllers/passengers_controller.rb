@@ -4,6 +4,12 @@ class PassengersController < ApplicationController
     render json: @passenger
   end
 
+  def destroy
+    @passenger = Passenger.find(params[:id])
+    @passenger.destroy
+    render json: @passenger
+  end
+
   private
 
   def passenger_params

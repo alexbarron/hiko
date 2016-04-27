@@ -14,6 +14,10 @@ function BackendService($http){
     return $http.put('http://localhost:3000/' + resource + '/' + params.id, params);
   }
 
+  this.deleteRecord = function(resource, id){
+    return $http.delete('http://localhost:3000/' + resource + '/' + id);
+  }
+
 }
 
 angular
