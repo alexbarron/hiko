@@ -1,0 +1,9 @@
+<div class="buyFlight" ng-hide="user.onFlight()" >
+  <p>Wanna get away? Click the Buy button to get on this flight.</p>
+  <a href="" ng-click="addPassenger()" class="btn btn-success">Buy</a>
+</div>
+<div class="refundFlight" ng-show="user.onFlight()">
+  <h4>You're booked on this flight!</h4>
+  <p>Need a refund? No problem.</p>
+  <a href="" ng-click="removePassenger()" class="btn btn-danger">Refund</a>
+</div>

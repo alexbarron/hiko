@@ -1,7 +1,12 @@
 <div class="row">
-
+  
   <div class="col-md-4">
     <h3>{{ FlightShow.flight.airline_name}} {{FlightShow.flight.id}}</h3>
+
+    <div ng-show="FlightShow.user">
+      <buy-refund-flight id="buy-refund" flight="FlightShow.flight" user="FlightShow.user"></buy-refund-flight>
+    </div><br />
+
     <p>From: {{ FlightShow.flight.origin.label }}<br />
     Departure Time: {{ FlightShow.flight.departure | date:'short' }}</p>
     <p>To: {{ FlightShow.flight.destination.label }}<br />
@@ -23,12 +28,8 @@
         <input type="submit" value="Update Price" class="btn btn-primary btn-sm">
       </form>
     </div>
-
-    <div id="buy" ng-show="FlightShow.user">
-      <a href="" ng-hide="FlightShow.user.onFlight()" ng-click="FlightShow.addPassenger()" class="btn btn-success">Buy</a>
-      <a href="" ng-show="FlightShow.user.onFlight()" ng-click="FlightShow.removePassenger()" class="btn btn-danger">Cancel</a>
-    </div>
   </div>
+
 
   <div class="col-md-8">
     <map orglat="FlightShow.flight.origin.lat" orglong="FlightShow.flight.origin.long" destlat="FlightShow.flight.destination.lat" destlong="FlightShow.flight.destination.long">
