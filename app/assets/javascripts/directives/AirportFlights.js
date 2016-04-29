@@ -13,8 +13,6 @@ function AirportFlights(){
       $scope.filteredDepartures = $scope.departures;
       $scope.filteredArrivals = $scope.arrivals;
 
-      console.log($scope.filteredDepartures.length);
-
       $scope.refilter = function(type){
         if (type === "departures"){
           $scope.filteredDepartures = $filter('filter')($scope.departures, $scope.searchDepartures);
