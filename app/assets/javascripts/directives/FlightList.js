@@ -30,6 +30,11 @@ function FlightList(){
         $scope.searchList();
         $scope.filterDates();
       }, 175); 
+    },
+    link: function($scope){
+      $scope.$on('updateFlightList', function(){
+        $scope.filterDates();
+      })
     }
   }
 }

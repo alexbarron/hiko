@@ -1,4 +1,4 @@
-function FlightIndexController(flights, $filter, BackendService, $location, Auth){
+function FlightIndexController($scope, flights, $filter, BackendService, $location, Auth){
   var ctrl = this;
   
   Auth.currentUser()
@@ -23,6 +23,9 @@ function FlightIndexController(flights, $filter, BackendService, $location, Auth
     BackendService.createRecord("flights", ctrl.flight).success(function(data){
       ctrl.flights.unshift(data.flight);
       ctrl.flight = {};
+
+      $scope.$broadcast('updateFlightList', {});
+
       $location.path('flights');
     });
   };
