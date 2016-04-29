@@ -4,14 +4,8 @@ function FlightList(){
     scope: {
       flights: '='
     },
-    controller: function($scope, $filter){
+    controller: function($scope){
       $scope.dateFilter = "future";
-      $scope.query = "";
-    },
-    link: function($scope){
-      $scope.$on('updateFlightList', function(){
-        //$scope.filterDates();
-      })
     }
   }
 }
