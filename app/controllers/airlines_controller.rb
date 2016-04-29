@@ -1,5 +1,5 @@
 class AirlinesController < ApplicationController
-  before_filter :authenticate_user!, only: [:create, :update]
+  before_filter :authenticate_admin, only: [:create, :update]
 
   def index
     @airlines = Airline.all

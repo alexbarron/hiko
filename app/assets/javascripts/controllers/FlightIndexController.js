@@ -21,7 +21,7 @@ function FlightIndexController(flights, $filter, BackendService, $location, Auth
 
   ctrl.createFlight = function(){
     BackendService.createRecord("flights", ctrl.flight).success(function(data){
-      ctrl.filteredList.unshift(data.flight);
+      ctrl.flights.unshift(data.flight);
       ctrl.flight = {};
       $location.path('flights');
     });

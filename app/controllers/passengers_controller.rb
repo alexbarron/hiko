@@ -1,4 +1,6 @@
 class PassengersController < ApplicationController
+  before_filter :authenticate_user!, only: [:create, :destroy]
+
   def create
     @passenger = Passenger.create(passenger_params)
     render json: @passenger
