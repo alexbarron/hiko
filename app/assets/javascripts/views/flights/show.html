@@ -10,7 +10,7 @@
 
     <ng-include src="'views/flights/_price.html'"></ng-include>
 
-    <div ng-show="FlightShow.user">
+    <div ng-show="FlightShow.user && FlightShow.futureFlight">
       <buy-refund-flight id="buy-refund" flight="FlightShow.flight" user="FlightShow.user"></buy-refund-flight>
     </div><br />
 
