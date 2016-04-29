@@ -1,4 +1,4 @@
-function AirlineShowController(airline, $filter, BackendService, $location, Auth){
+function AirlineShowController(airline, $filter, BackendService, $location, Auth, FlightFilterService){
   var ctrl = this;
 
   Auth.currentUser()
@@ -7,7 +7,8 @@ function AirlineShowController(airline, $filter, BackendService, $location, Auth
     });
 
   ctrl.airline = airline.data.airline_show;
-  ctrl.flights = ctrl.airline.flights;
+
+  ctrl.flights = FlightFilterService.futureFlights({flights: ctrl.airline.flights, filteredList: []});
   ctrl.search = '';
 
   ctrl.updateAirline = function(){

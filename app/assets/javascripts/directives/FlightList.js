@@ -4,47 +4,27 @@ function FlightList(){
     scope: {
       flights: '='
     },
-    controller: function($scope, $timeout, $filter){
+    controller: function($scope, $timeout, $filter, FlightFilterService){
       // $scope.flights is undefined without $timeout, what is the correct way to do this without $timeout?
 
       $timeout(function() {
-        $scope.filteredList = $scope.flights;
         $scope.search = '';
 
-        var filterStatus = "future";
-
-        $scope.searchList = function(){
-          $scope.filteredList = $filter('filter')($scope.makeList(filterStatus), $scope.search);
+        $scope.serviceValues = {
+          search: $scope.search,
+          flights: $scope.flights,
+          filterStatus: "future"
         };
 
-        $scope.makeList = function(direction){
-          var now = new Date;
-          var flights = $scope.flights;
-          $scope.filteredList = [];
-          if (direction === "all"){
-            $scope.filteredList = $scope.flights;
-            filterStatus = "all";
-          } else if (direction === "past"){
-              for(var i = 0; i < flights.length; i++){
-                if (new Date(flights[i].departure) < now){
-                  $scope.filteredList.push(flights[i]);
-                } 
-              }
-              filterStatus = "past";
-          } else{
-              for(var i = 0; i < flights.length; i++){
-                if (new Date(flights[i].departure) > now){
-                  $scope.filteredList.push(flights[i]);
-                }
-              }
-              filterStatus = "future";
-          }
-          return $scope.filteredList;   
-        }
+        $scope.searchList = function(){
+          $scope.serviceValues.search = $scope.search;
+          $scope.serviceValues = FlightFilterService.searchList($scope.serviceValues);
+        };
 
         $scope.filterDates = function(direction){
           $scope.search = "";
-          return $scope.makeList(direction);
+          $scope.serviceValues.filterStatus = direction;
+          $scope.serviceValues = FlightFilterService.makeList($scope.serviceValues);
         }
 
         $scope.searchList();

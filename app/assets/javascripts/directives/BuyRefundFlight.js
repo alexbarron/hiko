@@ -6,13 +6,15 @@ function BuyRefundFlight() {
       user: '='
     },
     controller: function($scope, BackendService, $state){
-      $scope.user.onFlight = function(){
-        var result = $.grep($scope.flight.passengers, function(p){ return p.user_id === $scope.user.id; });
-        if (result.length === 1){
-          $scope.user.passenger_id = result[0].id;
-          return true;
-        } else {
-          return false;
+      if ($scope.user) {
+        $scope.user.onFlight = function(){
+          var result = $.grep($scope.flight.passengers, function(p){ return p.user_id === $scope.user.id; });
+          if (result.length === 1){
+            $scope.user.passenger_id = result[0].id;
+            return true;
+          } else {
+            return false;
+          }
         }
       }
 
