@@ -1,4 +1,4 @@
-function FlightIndexController($scope, flights, $filter, BackendService, $location, Auth){
+function FlightIndexController($scope, flights, BackendService, $location, Auth){
   var ctrl = this;
   
   Auth.currentUser()

@@ -1,4 +1,4 @@
-function AirportShowController(airport, $filter, BackendService, $location, Auth, FlightFilterService){
+function AirportShowController(airport, $filter, BackendService, $location, Auth){
   var ctrl = this;
 
   Auth.currentUser()
@@ -7,9 +7,6 @@ function AirportShowController(airport, $filter, BackendService, $location, Auth
     });
 
   ctrl.airport = airport.data.airport_show;
-
-  ctrl.departures = FlightFilterService.futureFlights({flights: ctrl.airport.departures, filteredList: []});
-  ctrl.arrivals = FlightFilterService.futureFlights({flights: ctrl.airport.arrivals, filteredList: []});
 
   ctrl.updateAirport = function(){
     BackendService.updateRecord("airports", ctrl.airport).success(function(data){

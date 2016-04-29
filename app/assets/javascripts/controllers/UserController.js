@@ -17,7 +17,6 @@ function UserController($scope, Auth, $state, BackendService){
         $scope.user = data.profile;
       });
     });
-
 }
 
 angular

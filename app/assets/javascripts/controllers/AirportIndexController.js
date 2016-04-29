@@ -8,7 +8,6 @@ function AirportIndexController(airports, $filter, BackendService, $location, Au
 
   ctrl.airports = airports.data.airports;
   ctrl.airport = {};
-  ctrl.search = '';
 
   ctrl.createAirport = function(){
     BackendService.createRecord("airports", ctrl.airport).success(function(data){
@@ -17,12 +16,6 @@ function AirportIndexController(airports, $filter, BackendService, $location, Au
       $location.path('airports');
     });
   };
-
-  ctrl.refilter = function(){
-    ctrl.filteredList = $filter('filter')(ctrl.airports, ctrl.search);
-  };
-
-  ctrl.refilter();
 }
 
 angular

@@ -1,14 +1,14 @@
 <h3>Airports <a ng-show="ctrl.user.role === 'admin'" href="" ui-sref="airports.new" class="btn btn-primary">Add Airport</a></h3>
 <div ui-view></div>
 
-<input ng-model="ctrl.search" ng-change="ctrl.refilter()" placeholder="Search Airports"/>
+<input ng-model="query" placeholder="Search Airports"/>
 <table class="table table-striped table-condensed">
   <tr>
     <th>Airport Name</th>
     <th>Associated City</th>
     <th>Airport Code</th>
   </tr>
-  <tr ng-repeat="airport in ctrl.filteredList | orderBy: 'city'">
+  <tr ng-repeat="airport in ctrl.airports | filter:query | orderBy: 'city'">
     <td><a href="" ui-sref="airport({id: airport.id})">{{ airport.name }}</a></td>
     <td>{{ airport.city }}</td>
     <td>{{ airport.code }}</td>  

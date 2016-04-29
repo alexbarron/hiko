@@ -1,4 +1,4 @@
-function FlightShowController(flight, BackendService, Auth, $state){
+function FlightShowController(flight, BackendService, Auth){
   var ctrl = this;
 
   Auth.currentUser()
