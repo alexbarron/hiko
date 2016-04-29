@@ -29,7 +29,7 @@ function FlightList(){
 
         $scope.searchList();
         $scope.filterDates();
-      }, 175); 
+      }, 225); 
     },
     link: function($scope){
       $scope.$on('updateFlightList', function(){

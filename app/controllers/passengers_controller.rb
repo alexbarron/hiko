@@ -3,11 +3,13 @@ class PassengersController < ApplicationController
 
   def create
     @passenger = Passenger.create(passenger_params)
+    @passenger.user.buy_flight(@passenger.price_paid)
     render json: @passenger
   end
 
   def destroy
     @passenger = Passenger.find(params[:id])
+    @passenger.user.refund_flight(@passenger.price_paid)
     @passenger.destroy
     render json: @passenger
   end
@@ -15,6 +17,6 @@ class PassengersController < ApplicationController
   private
 
   def passenger_params
-    params.require(:passenger).permit(:user_id, :flight_id)
+    params.require(:passenger).permit(:flight_id, :user_id, :price_paid)
   end
 end

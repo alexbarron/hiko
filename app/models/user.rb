@@ -6,4 +6,14 @@ class User < ActiveRecord::Base
   enum role: [:user, :admin]
   has_many :passengers
   has_many :flights, through: :passengers
+
+  def buy_flight(price)
+    self.money -= price
+    self.save
+  end
+
+  def refund_flight(price)
+    self.money += price
+    self.save
+  end
 end

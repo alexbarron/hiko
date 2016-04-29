@@ -20,17 +20,22 @@ function BuyRefundFlight() {
 
       $scope.removePassenger = function(){
         BackendService.deleteRecord("passengers", $scope.user.passenger_id).success(function(data){
-          alert("You've been removed from this flight.");
           $state.go('user');
+          alert("You've been removed from this flight and refunded $" + $scope.flight.price.toLocaleString() + ".");
         })
       };
 
       $scope.addPassenger = function(){
-        var passenger_params = { user_id: $scope.user.id, flight_id: $scope.flight.id };
-        BackendService.createRecord("passengers", passenger_params).success(function(data){
-          alert("You've bought this flight and it's been added to 'Your Flights'");
-          $state.go('user');
-        });
+        if ($scope.user.money >= $scope.flight.price){
+          var passenger_params = { user_id: $scope.user.id, flight_id: $scope.flight.id, price_paid: $scope.flight.price };
+          BackendService.createRecord("passengers", passenger_params).success(function(data){
+            $state.go('user');
+            alert("You've bought this flight for $" + $scope.flight.price.toLocaleString() + " and it's been added to 'Your Flights'");
+            
+          });
+        } else {
+          alert("Sorry, you can't afford that flight");
+        }
       };
     }
   }

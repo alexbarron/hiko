@@ -13,9 +13,8 @@ function UserController($scope, Auth, $state, BackendService){
 
   Auth.currentUser()
     .then(function(user) {
-      $scope.user = user;
       BackendService.getRecord("users", user.id).success(function(data){
-        $scope.flights = data.profile.flights;
+        $scope.user = data.profile;
       });
     });
 
