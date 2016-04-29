@@ -3,16 +3,18 @@
   <div class="col-md-4">
     <h3>{{ FlightShow.flight.airline_name}} {{FlightShow.flight.id}}</h3>
 
-    <div ng-show="FlightShow.user">
-      <buy-refund-flight id="buy-refund" flight="FlightShow.flight" user="FlightShow.user"></buy-refund-flight>
-    </div><br />
-
     <p>From: {{ FlightShow.flight.origin.label }}<br />
     Departure Time: {{ FlightShow.flight.departure | date:'short' }}</p>
     <p>To: {{ FlightShow.flight.destination.label }}<br />
     Arrival Time: {{ FlightShow.flight.arrival | date:'short'  }}</p>
 
     <ng-include src="'views/flights/_price.html'"></ng-include>
+
+    <div ng-show="FlightShow.user">
+      <buy-refund-flight id="buy-refund" flight="FlightShow.flight" user="FlightShow.user"></buy-refund-flight>
+    </div><br />
+
+
   </div>
 
   <div class="col-md-8">

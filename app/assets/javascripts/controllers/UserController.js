@@ -18,6 +18,7 @@ function UserController($scope, Auth, $state, BackendService){
         $scope.flights = data.profile.flights;
       });
     });
+
 }
 
 angular

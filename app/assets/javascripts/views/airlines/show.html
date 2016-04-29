@@ -1,6 +1,6 @@
 <h3>
   Flights on {{ ctrl.airline.name }} ({{ctrl.airline.code}}) 
-  <a ng-show="ctrl.user" href="" ui-sref="airlines.airline.edit" class="btn btn-primary">Edit</a>
+  <a ng-show="ctrl.user.role === 'admin'" href="" ui-sref="airlines.airline.edit" class="btn btn-primary">Edit</a>
 </h3>
 
 <div ui-view></div>
