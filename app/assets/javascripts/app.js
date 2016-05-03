@@ -1,5 +1,8 @@
 angular
   .module('hiko', ['ui.router', 'templates', 'ngResource', 'ng-rails-csrf', 'Devise'])
+  .config(['$compileProvider', function($compileProvider){
+    $compileProvider.debugInfoEnabled(false);
+  }])
   .config(function($stateProvider, $urlRouterProvider){
     $stateProvider
       .state('airports',{

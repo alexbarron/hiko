@@ -5,9 +5,8 @@ function AirlineIndexController($state, Auth, Airline){
     .then(function(user) {
       ctrl.user = user;
     });
-
-  ctrl.airlines = Airline.query();
-
+ 
+  ctrl.airlines = Airline.query()
   ctrl.airline = new Airline();
 
   ctrl.createAirline = function(){

@@ -3,6 +3,7 @@ function Airline($resource){
     update: { method: 'PUT'},
     delete: { method: 'DELETE'}
   });
+
   return Airline;
 }
 
