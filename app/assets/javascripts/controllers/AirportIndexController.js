@@ -1,4 +1,4 @@
-function AirportIndexController(airports, $filter, BackendService, $location, Auth){
+function AirportIndexController(airports, Airport, $state, Auth){
   var ctrl = this;
 
   Auth.currentUser()
@@ -7,13 +7,13 @@ function AirportIndexController(airports, $filter, BackendService, $location, Au
     });
 
   ctrl.airports = airports.data.airports;
-  ctrl.airport = {};
+  ctrl.airport = new Airport();
 
   ctrl.createAirport = function(){
-    BackendService.createRecord("airports", ctrl.airport).success(function(data){
+    ctrl.airport.$save(function(data){
       ctrl.airports.unshift(data.airport);
       ctrl.airport = {};
-      $location.path('airports');
+      $state.go('airports');
     });
   };
 }

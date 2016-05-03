@@ -1,4 +1,4 @@
-function AirportShowController(airport, $filter, BackendService, $location, Auth){
+function AirportShowController(Airport, $stateParams, $location, Auth){
   var ctrl = this;
 
   Auth.currentUser()
@@ -6,13 +6,14 @@ function AirportShowController(airport, $filter, BackendService, $location, Auth
       ctrl.user = user;
     });
 
-  ctrl.airport = airport.data.airport_show;
+  ctrl.airport = Airport.get({id: $stateParams.id });
 
   ctrl.updateAirport = function(){
-    BackendService.updateRecord("airports", ctrl.airport).success(function(data){
-      $location.path('/airport/' + data.airport.id);
-    });
-  }
+    ctrl.airport.$update(function(data){
+      ctrl.airport = data.airport;
+      $location.path('/airports/' + data.airport.id);
+    })
+  };
 }
 
 angular

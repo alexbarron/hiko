@@ -8,7 +8,7 @@ class AirportsController < ApplicationController
 
   def show
     @airport = Airport.find(params[:id])
-    render json: @airport, serializer: AirportShowSerializer
+    render json: @airport, root: false
   end
 
   def create

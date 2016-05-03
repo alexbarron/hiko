@@ -17,14 +17,9 @@ angular
         templateUrl: 'views/airports/new.html',
       })
       .state('airport',{
-        url: '/airport/:id',
+        url: '/airports/:id',
         templateUrl: 'views/airports/show.html',
-        controller: 'AirportShowController as ctrl',
-        resolve: {
-          airport: function($stateParams, BackendService){
-            return BackendService.getRecord("airports", $stateParams.id);
-          }
-        }
+        controller: 'AirportShowController as ctrl'
       })
       .state('airport.edit',{
         url: '/edit',
