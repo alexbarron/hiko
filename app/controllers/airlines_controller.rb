@@ -3,7 +3,7 @@ class AirlinesController < ApplicationController
 
   def index
     @airlines = Airline.all
-    render json: @airlines, each_serializer: AirlineIndexSerializer
+    render json: @airlines, root: false, each_serializer: AirlineIndexSerializer
   end
 
   def show

@@ -1,4 +1,4 @@
-function FlightIndexController($scope, flights, Auth){
+function FlightIndexController($scope, Auth, Flight){
   var ctrl = this;
   
   Auth.currentUser()
@@ -6,7 +6,7 @@ function FlightIndexController($scope, flights, Auth){
       ctrl.user = user;
     });
     
-  ctrl.flights = flights.data.flights;
+  ctrl.flights = Flight.query();
 }
 
 angular

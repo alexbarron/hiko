@@ -1,4 +1,4 @@
-function AirlineIndexController(airlines, $state, Auth, Airline){
+function AirlineIndexController($state, Auth, Airline){
   var ctrl = this;
 
   Auth.currentUser()
@@ -6,7 +6,8 @@ function AirlineIndexController(airlines, $state, Auth, Airline){
       ctrl.user = user;
     });
 
-  ctrl.airlines = airlines.data.airlines;
+  ctrl.airlines = Airline.query();
+
   ctrl.airline = new Airline();
 
   ctrl.createAirline = function(){

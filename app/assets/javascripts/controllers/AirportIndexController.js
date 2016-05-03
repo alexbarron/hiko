@@ -1,4 +1,4 @@
-function AirportIndexController(airports, Airport, $state, Auth){
+function AirportIndexController(Airport, $state, Auth){
   var ctrl = this;
 
   Auth.currentUser()
@@ -6,7 +6,8 @@ function AirportIndexController(airports, Airport, $state, Auth){
       ctrl.user = user;
     });
 
-  ctrl.airports = airports.data.airports;
+  ctrl.airports = Airport.query();
+  
   ctrl.airport = new Airport();
 
   ctrl.createAirport = function(){

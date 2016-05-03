@@ -5,12 +5,7 @@ angular
       .state('airports',{
         url: '/airports',
         templateUrl: 'views/airports/index.html',
-        controller: 'AirportIndexController as ctrl',
-        resolve: {
-          airports: function(BackendService){
-            return BackendService.allRecords("airports");
-          }
-        }
+        controller: 'AirportIndexController as ctrl'
       })
       .state('airports.new',{
         url: '/new',
@@ -28,12 +23,7 @@ angular
       .state('airlines',{
         url: '/airlines',
         templateUrl: 'views/airlines/index.html',
-        controller: 'AirlineIndexController as ctrl',
-        resolve: {
-          airlines: function(BackendService){
-            return BackendService.allRecords("airlines");
-          }
-        }
+        controller: 'AirlineIndexController as ctrl'
       })
       .state('airlines.new',{
         url: '/new',
@@ -51,12 +41,7 @@ angular
       .state('flights',{
         url: '/flights',
         templateUrl: 'views/flights/index.html',
-        controller: 'FlightIndexController as ctrl',
-        resolve: {
-          flights: function(BackendService){
-            return BackendService.allRecords("flights");
-          }
-        }
+        controller: 'FlightIndexController as ctrl'
       })
       .state('flights.new',{
         url: '/new',

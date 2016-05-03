@@ -3,7 +3,7 @@ class FlightsController < ApplicationController
 
   def index
     @flights = Flight.all
-    render json: @flights, each_serializer: FlightIndexSerializer
+    render json: @flights, root: false, each_serializer: FlightIndexSerializer
   end
 
   def show
