@@ -7,28 +7,6 @@ function FlightIndexController($scope, flights, BackendService, $location, Auth)
     });
     
   ctrl.flights = flights.data.flights;
-  ctrl.flight = {};
-
-  ctrl.loadForm = function(){
-    BackendService.allRecords("airlines").success(function(data){
-      ctrl.airlines = data.airlines;
-    });
-
-    BackendService.allRecords("airports").success(function(data){
-      ctrl.airports = data.airports;
-    });
-  };
-
-  ctrl.createFlight = function(){
-    BackendService.createRecord("flights", ctrl.flight).success(function(data){
-      ctrl.flights.unshift(data.flight);
-      ctrl.flight = {};
-
-      $scope.$broadcast('updateFlightList', {});
-
-      $location.path('flights');
-    });
-  };
 }
 
 angular

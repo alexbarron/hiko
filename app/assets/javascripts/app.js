@@ -36,6 +36,7 @@ angular
         controller: 'AirlineIndexController as ctrl',
         resolve: {
           airlines: function(BackendService){
+            console.log("This did not fire")
             return BackendService.allRecords("airlines");
           }
         }

@@ -1,0 +1,7 @@
+<div class="form_wrapper">
+  <h2>Add Flight</h2>
+  <form name="form" ng-submit="form.$valid && createFlight()">
+    <ng-include src="'views/flights/_form.html'"></ng-include>
+    <input type="submit" value="Create Flight" class="btn btn-success btn-sm">
+  </form>
+</div>
