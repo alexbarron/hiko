@@ -1,4 +1,4 @@
-function UserController($scope, Auth, $state, BackendService){
+function UserController($scope, User, Auth, $state, BackendService){
   $scope.register = function(){
     Auth.register($scope.user).then(function(){
       $state.go('flights');
@@ -13,9 +13,7 @@ function UserController($scope, Auth, $state, BackendService){
 
   Auth.currentUser()
     .then(function(user) {
-      BackendService.getRecord("users", user.id).success(function(data){
-        $scope.user = data.profile;
-      });
+      $scope.user = User.get({id: user.id});
     });
 }
 
