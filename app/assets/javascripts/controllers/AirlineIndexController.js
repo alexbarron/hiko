@@ -1,4 +1,4 @@
-function AirlineIndexController(airlines, BackendService, $location, Auth){
+function AirlineIndexController(airlines, $state, Auth, Airline){
   var ctrl = this;
 
   Auth.currentUser()
@@ -7,13 +7,13 @@ function AirlineIndexController(airlines, BackendService, $location, Auth){
     });
 
   ctrl.airlines = airlines.data.airlines;
-  ctrl.airline = {};
+  ctrl.airline = new Airline();
 
   ctrl.createAirline = function(){
-    BackendService.createRecord("airlines", ctrl.airline).success(function(data){
+    ctrl.airline.$save(function(data){
       ctrl.airlines.unshift(data.airline);
       ctrl.airline = {};
-      $location.path('airlines');
+      $state.go('airlines');
     });
   };
 }

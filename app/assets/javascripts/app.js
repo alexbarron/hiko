@@ -36,7 +36,6 @@ angular
         controller: 'AirlineIndexController as ctrl',
         resolve: {
           airlines: function(BackendService){
-            console.log("This did not fire")
             return BackendService.allRecords("airlines");
           }
         }
@@ -48,12 +47,7 @@ angular
       .state('airlines.airline',{
         url: '/:id',
         templateUrl: 'views/airlines/show.html',
-        controller: 'AirlineShowController as ctrl',
-        resolve: {
-          airline: function($stateParams, BackendService){
-            return BackendService.getRecord("airlines", $stateParams.id);
-          }
-        }
+        controller: 'AirlineShowController as ctrl'
       })
       .state('airlines.airline.edit',{
         url: '/edit',

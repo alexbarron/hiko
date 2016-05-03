@@ -1,17 +1,18 @@
-function AirlineShowController(airline, BackendService, $location, Auth){
+function AirlineShowController(Airline, $stateParams, $location, Auth){
   var ctrl = this;
+
+  ctrl.airline = Airline.get({id: $stateParams.id });
 
   Auth.currentUser()
     .then(function(user) {
       ctrl.user = user;
     });
 
-  ctrl.airline = airline.data.airline_show;
-
   ctrl.updateAirline = function(){
-    BackendService.updateRecord("airlines", ctrl.airline).success(function(data){
+    ctrl.airline.$update(function(data){
+      ctrl.airline = data.airline;
       $location.path('/airlines/' + data.airline.id);
-    });
+    })
   };
 
 }
