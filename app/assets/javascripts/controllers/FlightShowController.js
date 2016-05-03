@@ -1,23 +1,27 @@
-function FlightShowController(flight, BackendService, Auth){
+function FlightShowController(Flight, Auth, $stateParams){
   var ctrl = this;
+
+  ctrl.flight = Flight.get({id: $stateParams.id });
+
+  ctrl.flight.$promise.then(function(data){
+    if (new Date(data.departure) > new Date){
+      ctrl.futureFlight = true;
+    } else {
+      ctrl.futureFlight = false;
+    }
+  });
 
   Auth.currentUser()
     .then(function(user) {
       ctrl.user = user;
     });
 
-  ctrl.flight = flight.data.flight;
-
-  if (new Date(ctrl.flight.departure) > new Date){
-    ctrl.futureFlight = true;
-  } else {
-    ctrl.futureFlight = false;
-  }
 
   ctrl.updateFlight = function(){
-    var flight_params = { id: ctrl.flight.id, price: ctrl.flight.price };
-    BackendService.updateRecord("flights", flight_params);
-  };
+    ctrl.flight.$update(function(data){
+      ctrl.flight = data.flight;
+    })
+  }
 }
 
 angular

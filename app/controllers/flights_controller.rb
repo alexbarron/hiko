@@ -8,7 +8,7 @@ class FlightsController < ApplicationController
 
   def show
     @flight = Flight.find(params[:id])
-    render json: @flight
+    render json: @flight, root: false
   end
 
   def create

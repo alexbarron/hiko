@@ -65,12 +65,7 @@ angular
       .state('flight',{
         url: '/flight/:id',
         templateUrl: 'views/flights/show.html',
-        controller: 'FlightShowController as FlightShow',
-        resolve: {
-          flight: function($stateParams, BackendService){
-            return BackendService.getRecord("flights", $stateParams.id);
-          }
-        }
+        controller: 'FlightShowController as FlightShow'
       })
       .state('register', {
         url: '/register',
