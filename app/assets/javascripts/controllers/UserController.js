@@ -1,4 +1,4 @@
-function UserController($scope, User, Auth, $state, BackendService){
+function UserController($scope, User, Auth, $state){
   $scope.register = function(){
     Auth.register($scope.user).then(function(){
       $state.go('flights');

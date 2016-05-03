@@ -5,7 +5,7 @@ function BuyRefundFlight() {
       flight: '=',
       user: '='
     },
-    controller: function($scope, BackendService, $state, $timeout){
+    controller: function($scope, PassengerService, $state, $timeout){
       $timeout(function() {
         if ($scope.user) {
           $scope.user.onFlight = function(){
@@ -20,7 +20,7 @@ function BuyRefundFlight() {
         }
 
         $scope.removePassenger = function(){
-          BackendService.deleteRecord("passengers", $scope.user.passenger_id).success(function(data){
+          PassengerService.deleteRecord($scope.user.passenger_id).success(function(data){
             $state.go('user');
             alert("You've been removed from this flight and refunded $" + $scope.flight.price.toLocaleString() + ".");
           })
@@ -29,7 +29,7 @@ function BuyRefundFlight() {
         $scope.addPassenger = function(){
           if ($scope.user.money >= $scope.flight.price){
             var passenger_params = { user_id: $scope.user.id, flight_id: $scope.flight.id, price_paid: $scope.flight.price };
-            BackendService.createRecord("passengers", passenger_params).success(function(data){
+            PassengerService.createRecord(passenger_params).success(function(data){
               $state.go('user');
               alert("You've bought this flight for $" + $scope.flight.price.toLocaleString() + " and it's been added to 'Your Flights'");
               
